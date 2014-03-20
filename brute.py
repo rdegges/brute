@@ -16,6 +16,9 @@ from string import (
 )
 
 
+__version__ = '0.0.1'
+
+
 def brute(length=5, letters=True, numbers=True, symbols=True, spaces=False):
     """
     Iterate through a sequence of possible strings, efficiently.
