@@ -59,6 +59,6 @@ def brute(length=3, letters=True, numbers=True, symbols=True, spaces=False):
             product(
                 choices,
                 repeat = i,
-            ) for i in xrange(1, length + 1),
+            ) for i in range(1, length + 1),
         )
     )
