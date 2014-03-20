@@ -39,3 +39,39 @@ class TestBrute(TestCase):
         self.assertTrue(numbers)
         self.assertTrue(symbols)
         self.assertTrue(whitespace)
+
+    def test_disable_letters(self):
+        letters = True
+
+        for pw in brute(letters=False):
+            if 'a' in pw:
+                letters = False
+
+        self.assertTrue(letters)
+
+    def test_disable_numbers(self):
+        numbers = True
+
+        for pw in brute(numbers=False):
+            if '1' in pw:
+                numbers = False
+
+        self.assertTrue(numbers)
+
+    def test_disable_symbols(self):
+        symbols = True
+
+        for pw in brute(symbols=False):
+            if '!' in pw:
+                symbols = False
+
+        self.assertTrue(symbols)
+
+    def test_enable_spaces(self):
+        spaces = False
+
+        for pw in brute(spaces=True):
+            if ' ' in pw:
+                spaces = True
+
+        self.assertTrue(spaces)
