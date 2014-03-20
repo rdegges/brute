@@ -55,8 +55,8 @@ for s in brute():
 
 Bam!
 
-Let's say you want to also include space characters in your string (' ', '\t',
-etc...) -- you can do this too!
+Let's say you want to also include space characters in your string (`' '`,
+`'\t'`, etc...) -- you can do this too!
 
 ```python
 from brute import brute
