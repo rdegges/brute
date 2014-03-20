@@ -14,7 +14,7 @@ from brute import (
 
 class TestCommand(Command):
 
-    description = 'run tests'
+    description = 'run all tests'
     user_options = []
 
     def initialize_options(self):
@@ -25,7 +25,7 @@ class TestCommand(Command):
 
     def run(self):
         """Run the test suite."""
-        exit(call(['py.test']))
+        exit(call(['py.test', '--cov', 'brute']))
 
 
 setup(
@@ -40,10 +40,12 @@ setup(
     include_package_data = True,
 
     # Package dependencies:
-    install_requires = [
-        'Flask-RQ==0.2',
-        'Flask-Script>=0.5.3',
-    ],
+    install_requires = [],
+
+    # Test harness:
+    cmdclass = {
+        'test': TestCommand,
+    },
 
     # Metadata for PyPI:
     author = 'Randall Degges',
