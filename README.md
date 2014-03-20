@@ -31,3 +31,57 @@ You can also upgrade your existing installation by running:
 ```console
 $ pip install -U brute
 ```
+
+
+## Usage
+
+Using `brute` is super easy -- seriously.
+
+Let's say you want to iterate through every possible permutation of strings that
+contain:
+
+- All letters (upper and lowercase),
+- All numbers (01234...),
+- All symbols (!#$...),
+
+All you have to do is:
+
+```python
+from brute import brute
+
+for s in brute():
+    print s
+```
+
+Bam!
+
+Let's say you want to also include space characters in your string (' ', '\t',
+etc...) -- you can do this too!
+
+```python
+from brute import brute
+
+for s in brute(spaces=True):
+    print s
+```
+
+You can customize the max length of the strings generated as well.  By
+default, `brute` will only run through 3 characters:
+
+```
+from brute import brute
+
+for s in brute(length=10)
+    print s
+```
+
+And, lastly, if for some reason you only want to iterate through letters,
+numbers, or whatever, you can do that as well!
+
+```python
+from brute import brute
+
+# Iterate over *only* numbers (0 - 9).
+for s in brute(length=5, letters=False, numbers=True, symbols=False):
+    print s
+```
