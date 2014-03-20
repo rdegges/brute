@@ -13,5 +13,4 @@ class TestBrute(TestCase):
         for pw in brute():
             last_str = pw
 
-        if len(last_str) != 3:
-            return
+        self.assertEqual(len(last_str), 3)
