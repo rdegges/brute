@@ -14,7 +14,7 @@ setup(
     # Basic package information:
     name = 'brute',
     version = version,
-    py_modules = ('flask_rqify', ),
+    py_modules = ['brute'],
 
     # Packaging options:
     zip_safe = False,
