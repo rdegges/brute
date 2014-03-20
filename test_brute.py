@@ -17,4 +17,4 @@ class TestBrute(TestCase):
         self.assertEqual(len(last_str), 3)
 
     def test_brute_returns_generator(self):
-        self.assertIsInstance(GeneratorType, brute())
+        self.assertIsInstance(brute(), GeneratorType)
