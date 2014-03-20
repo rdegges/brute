@@ -1,0 +1,2 @@
+include README.md requirements.txt test_brute.py UNLICENSE
+recursive-include assets *.jpg
