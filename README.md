@@ -85,3 +85,10 @@ from brute import brute
 for s in brute(length=5, letters=False, numbers=True, symbols=False):
     print s
 ```
+
+
+## Changes
+
+0.0.1: 3-20-2014
+
+    - First release!
