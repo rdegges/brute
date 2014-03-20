@@ -8,12 +8,23 @@
 
 from itertools import chain, product
 from random import sample
-from string import (
-    digits as _numbers,
-    letters as _letters,
-    punctuation as _symbols,
-    whitespace as _spaces,
-)
+
+# Python 2 and 3 have different string constants, so this makes the library
+# Python 3 compatible.
+try:
+    from string import (
+        digits as _numbers,
+        letters as _letters,
+        punctuation as _symbols,
+        whitespace as _spaces,
+    )
+except ImportError:
+    from string import (
+        digits as _numbers,
+        ascii_letters as _letters,
+        punctuation as _symbols,
+        whitespace as _spaces,
+    )
 
 
 __version__ = '0.0.1'
