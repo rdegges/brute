@@ -1,12 +1,31 @@
 """Packaging information."""
 
 
-from setuptools import setup
+from subprocess import call
+from sys import exit
+
+from setuptools import Command, setup
 
 from brute import (
     __doc__ as description,
     __version__ as version,
 )
+
+
+class TestCommand(Command):
+
+    description = 'run tests'
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        """Run the test suite."""
+        exit(call(['py.test']))
 
 
 setup(
