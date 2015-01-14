@@ -40,7 +40,7 @@ def brute(length=3, letters=True, numbers=True, symbols=True, spaces=False):
     :param bool letters: Include letters (upper and lower case)? Default: True.
     :param bool numbers: Include numbers? Default: True.
     :param bool symbols: Include symbols? Default: True.
-    :param bool space: Include space characters? Default: False.
+    :param bool spaces: Include space characters? Default: False.
 
     :rtype: generator
     :returns: A generator which iterates through all permutations of the
