@@ -93,6 +93,11 @@ for s in brute(length=5, letters=False, numbers=True, symbols=False):
 
 ## Changes
 
+0.0.2: not yet released
+
+    - Fixed typo in docstring.  Thanks @zhao-ji!
+
+
 0.0.1: 3-20-2014
 
     - First release!
