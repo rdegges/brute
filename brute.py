@@ -36,7 +36,7 @@ def brute(length=3, ramp=True, letters=True, numbers=True, symbols=True, spaces=
 
     :param int length: The length of the string to iterate through.  We'll
         iterate through all permutations of strings up to this length. Default:
-        5.
+        3.
     :param bool ramp: Should we ramp up in length from 1 until length?  Or
         should we only iterate over values of the current length?  Default:
         True.
