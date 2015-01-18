@@ -75,3 +75,7 @@ class TestBrute(TestCase):
                 spaces = True
 
         self.assertTrue(spaces)
+
+    def test_ramp(self):
+        for pw in brute(length=3, ramp=False):
+            self.assertEqual(len(pw), 3)

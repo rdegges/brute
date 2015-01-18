@@ -30,13 +30,16 @@ except ImportError:
 __version__ = '0.0.2'
 
 
-def brute(length=3, letters=True, numbers=True, symbols=True, spaces=False):
+def brute(length=3, ramp=True, letters=True, numbers=True, symbols=True, spaces=False):
     """
     Iterate through a sequence of possible strings, efficiently.
 
     :param int length: The length of the string to iterate through.  We'll
         iterate through all permutations of strings up to this length. Default:
         5.
+    :param bool ramp: Should we ramp up in length from 1 until length?  Or
+        should we only iterate over values of the current length?  Default:
+        True.
     :param bool letters: Include letters (upper and lower case)? Default: True.
     :param bool numbers: Include numbers? Default: True.
     :param bool symbols: Include symbols? Default: True.
@@ -59,6 +62,6 @@ def brute(length=3, letters=True, numbers=True, symbols=True, spaces=False):
             product(
                 choices,
                 repeat = i,
-            ) for i in range(1, length + 1),
+            ) for i in range(1 if ramp else length, length + 1),
         )
     )
