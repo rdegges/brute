@@ -27,7 +27,7 @@ except ImportError:
     )
 
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 
 def brute(length=3, letters=True, numbers=True, symbols=True, spaces=False):
