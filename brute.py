@@ -27,13 +27,15 @@ except ImportError:
     )
 
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 
-def brute(length=3, ramp=True, letters=True, numbers=True, symbols=True, spaces=False):
+def brute(start_length=1, length=3, ramp=True, letters=True, numbers=True, symbols=True, spaces=False):
     """
     Iterate through a sequence of possible strings, efficiently.
 
+    :param int start_length: The length of the string to begin ramping through.
+        This number must be less than length and greater than 0. Default: 1.
     :param int length: The length of the string to iterate through.  We'll
         iterate through all permutations of strings up to this length. Default:
         5.
@@ -56,12 +58,16 @@ def brute(length=3, ramp=True, letters=True, numbers=True, symbols=True, spaces=
     choices += _spaces if spaces else ''
     choices = ''.join(sample(choices, len(choices)))
 
+    if ramp:
+        if start_length < 1 or start_length > length:
+            start_length = 1
+
     return (
         ''.join(candidate) for candidate in
         chain.from_iterable(
             product(
                 choices,
                 repeat = i,
-            ) for i in range(1 if ramp else length, length + 1),
+            ) for i in range(start_length if ramp else length, length + 1),
         )
     )
