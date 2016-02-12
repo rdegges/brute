@@ -93,7 +93,11 @@ for s in brute(length=5, letters=False, numbers=True, symbols=False):
 
 ## Changes
 
-0.0.2: not yet released
+0.0.3: 2-12-2016
+
+    - Supporting start length when ramping up. Thanks @petermuller!
+
+0.0.2: 1-18-2015
 
     - Fixed typo in docstring.  Thanks @zhao-ji!
 
