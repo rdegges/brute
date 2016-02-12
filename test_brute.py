@@ -79,3 +79,13 @@ class TestBrute(TestCase):
     def test_ramp(self):
         for pw in brute(length=3, ramp=False):
             self.assertEqual(len(pw), 3)
+
+    def test_ramp_start_length(self):
+        for pw in brute(start_length=2, length=3, ramp=True):
+            self.assertTrue(len(pw) >= 2)
+
+    def test_ramp_bad_start_length(self):
+        for pw in brute(start_length=0, length=3, ramp=True):
+            self.assertTrue(len(pw) >= 1)
+        for pw in brute(start_length=4, length=3, ramp=True):
+            self.assertTrue(len(pw) < 4)
