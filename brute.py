@@ -8,6 +8,10 @@
 
 from itertools import chain, product
 from random import sample
+import sys
+
+if sys.version[0] == 2:
+    range = xrange
 
 # Python 2 and 3 have different string constants, so this makes the library
 # Python 3 compatible.
