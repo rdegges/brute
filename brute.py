@@ -18,14 +18,16 @@ if sys.version[0] == "2":
 try:
     from string import (
         digits as _numbers,
-        letters as _letters,
+        uppercase as _lettersUP,
+        lowercase as _lettersLO,
         punctuation as _symbols,
         whitespace as _spaces,
     )
 except ImportError:
     from string import (
         digits as _numbers,
-        ascii_letters as _letters,
+        ascii_uppercase as _lettersUP,
+        ascii_lowercase as _lettersLO,
         punctuation as _symbols,
         whitespace as _spaces,
     )
@@ -34,7 +36,7 @@ except ImportError:
 __version__ = '0.0.3'
 
 
-def brute(start_length=1, length=3, ramp=True, letters=True, numbers=True, symbols=True, spaces=False):
+def brute(start_length=1, length=3, ramp=True, letters=True, lowercases=True, uppercases=True, numbers=True, symbols=True, spaces=False):
     """
     Iterate through a sequence of possible strings, efficiently.
 
@@ -56,7 +58,8 @@ def brute(start_length=1, length=3, ramp=True, letters=True, numbers=True, symbo
         specified values.
     """
     choices = ''
-    choices += _letters if letters else ''
+    choices += _lettersUP if (letters and uppercases) else ''
+    choices += _lettersLO if (letters and lowercases) else ''
     choices += _numbers if numbers else ''
     choices += _symbols if symbols else ''
     choices += _spaces if spaces else ''
