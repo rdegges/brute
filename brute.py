@@ -21,6 +21,8 @@ try:
         letters as _letters,
         punctuation as _symbols,
         whitespace as _spaces,
+        ascii_lowercase as _lowercase,
+        ascii_uppercase as _uppercase
     )
 except ImportError:
     from string import (
@@ -34,7 +36,7 @@ except ImportError:
 __version__ = '0.0.3'
 
 
-def brute(start_length=1, length=3, ramp=True, letters=True, numbers=True, symbols=True, spaces=False):
+def brute(start_length=1, length=3, ramp=True, letters=True, uppercase_only=False ,lowercase_only=False , numbers=True, symbols=True, spaces=False):
     """
     Iterate through a sequence of possible strings, efficiently.
 
@@ -47,6 +49,8 @@ def brute(start_length=1, length=3, ramp=True, letters=True, numbers=True, symbo
         should we only iterate over values of the current length?  Default:
         True.
     :param bool letters: Include letters (upper and lower case)? Default: True.
+    :param bool uppercase_only: Include Uppercase letters only? Default: False
+    :param bool lowercase_only: Include Lowercase letters only? Default:False
     :param bool numbers: Include numbers? Default: True.
     :param bool symbols: Include symbols? Default: True.
     :param bool spaces: Include space characters? Default: False.
@@ -60,6 +64,15 @@ def brute(start_length=1, length=3, ramp=True, letters=True, numbers=True, symbo
     choices += _numbers if numbers else ''
     choices += _symbols if symbols else ''
     choices += _spaces if spaces else ''
+    
+    choices -= _lowercase if (uppercase_only and letters) else ''
+    choices -= _uppercase if (lowercase_only and letters) else ''
+    choices += _uppercase if (uppercase_only and not letters) else ''
+    choices += _lowercase if (lowercase_only and not letters) else ''
+    
+    if(uppercase_only and lowercase_only):
+        raise Exception("Can't set lowercase_only and uppercase_only to true, use letters=True instead.")
+    
     choices = ''.join(sample(choices, len(choices)))
 
     if ramp:
