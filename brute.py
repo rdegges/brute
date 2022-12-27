@@ -1,9 +1,4 @@
-"""
-    brute
-    ~~~~~
-
-    Simple brute forcing in Python.
-"""
+"""Simple brute forcing in Python."""
 
 
 from itertools import chain, product
