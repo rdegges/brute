@@ -1,0 +1,18 @@
+name: Test brute
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: [3.7, 3.8, 3.9, 3.10, 3.11, 3.12]
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Display Python version
+        run: python --version
+      - name: Install package
+        run: pip install -e .
+      - name: Run tests
+        run: python -m unittest
