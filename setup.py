@@ -6,11 +6,6 @@ from sys import exit
 
 from setuptools import Command, setup
 
-from brute import (
-    __doc__ as description,
-    __version__ as version,
-)
-
 
 class TestCommand(Command):
 
@@ -32,7 +27,7 @@ setup(
 
     # Basic package information:
     name = 'brute',
-    version = version,
+    version = '1.0.0',
     py_modules = ['brute'],
 
     # Packaging options:
