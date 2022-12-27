@@ -1,6 +1,7 @@
 """Packaging information."""
 
 
+from os.path import abspath, dirname, join, normpath
 from subprocess import call
 from sys import exit
 
@@ -49,7 +50,8 @@ setup(
     url = 'https://github.com/rdegges/brute',
     keywords = 'python security bruteforce hash hack',
     description = 'Simple brute forcing in Python.',
-    long_description = description,
+    long_description=open(normpath(join(dirname(abspath(__file__)), 'README.md'))).read(),
+    long_description_content_type='text/markdown',
     classifiers = [
         'Development Status :: 4 - Beta',
         'Environment :: Console',
