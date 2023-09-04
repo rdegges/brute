@@ -89,6 +89,10 @@ for s in brute(length=5, letters=False, numbers=True, symbols=False):
 
 ## Changes
 
+0.0.4: 8-8-2023
+
+    - Fix syntax error (issues rdegges#7, rdegges#12, rdegges#14)
+
 0.0.3: 2-12-2016
 
     - Supporting start length when ramping up. Thanks @petermuller!
