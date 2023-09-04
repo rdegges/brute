@@ -37,5 +37,5 @@ def brute(start_length=1, length=3, ramp=True, letters=True, numbers=True, symbo
 
     return (
         ''.join(candidate) for candidate in
-        chain.from_iterable(product(choices, repeat=i) for i in range(start_length if ramp else length, length+1))
+        chain.from_iterable((product(choices, repeat=i) for i in range(start_length if ramp else length, length+1)))
     )
